@@ -26,7 +26,7 @@ export class UserService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        //console.log(result);
+        
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         });
@@ -69,7 +69,7 @@ export class UserService {
   }
 
   SignUp(email: string, password: string, name: string) {
-    console.log();
+   
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -97,7 +97,7 @@ export class UserService {
       name: user.name,
       password: user.password,
     };
-    console.log(userData);
+    
     return userRef.set(userData, {
       merge: true,
     });

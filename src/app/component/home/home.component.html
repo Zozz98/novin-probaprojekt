@@ -1,12 +1,9 @@
-<div class="container-fluid">
-    <nav class="navbar bg-light w-100">
+<div class="navbar bg-light w-100">
+    <nav class=" container-fluid">
         <h2>LOGO</h2>
         <h6>Név: {{userData!.email}}</h6>
         <h6>Utolsó belépés: {{userData!.loginDate | date:'medium'}} </h6>
-        <a routerLink="/table">Számlák megtekintése</a>
-        
+        <a routerLink="/table" class="btn btn-outline-primary">Számlák megtekintése</a>
         <button class="btn btn-outline-danger" (click)="signOut()">Kilépés</button>
     </nav>
-
-    
 </div>
