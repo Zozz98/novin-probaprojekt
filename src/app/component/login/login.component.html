@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center min-vh-100 align-items-center">
+     <form [formGroup]="userFormGroup">
+        <h1 class="text-center mb-3">Belépés</h1>
+        
+        <div class="form-group mb-3">
+            <label class="form-label" for="felhasznalonev">Email</label>
+            <input formControlName="email" class="form-control" type="text" placeholder="Aa" id="email" required>
+            <span *ngIf="userFormGroup.controls.email.dirty && userFormGroup.controls.email.errors?.['required']" class="text-danger">Email required</span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="password">Jelszó</label>
+            <input formControlName="password" class="form-control" type="password" placeholder="*" id="password" required>
+            <span *ngIf="userFormGroup.controls.password.dirty && userFormGroup.controls.password.errors?.['required']" class="text-danger">Password required</span>
+        </div>
+        <div class="form-group mb-3">
+            <button class="btn btn-outline-primary w-100 mb-2" (click)="login()" [disabled]="userFormGroup.invalid">Bejelentkezés</button>
+            <a routerLink="/registration" class="btn btn-primary w-100">Regisztráció</a>
+        </div>
+    </form> 
+    <!-- <router-outlet></router-outlet> -->
+</div>

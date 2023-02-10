@@ -94,6 +94,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Probafeladat:build:production",
+            "firebaseProject": "novin-probafeladat",
+            "firebaseHostingSite": "novin-probafeladat"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "novin-probafeladat": {
+      "hosting": {
+        "Probafeladat": [
+          "novin-probafeladat"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "novin-probafeladat"
+  }
+}

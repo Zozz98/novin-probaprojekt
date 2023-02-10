@@ -1,0 +1,24 @@
+<app-home></app-home>
+<div class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngFor="let header of tableHeaders" class="text-center">{{header}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bill of bills | async">
+            <td>{{bill.id}}</td>
+            <td>{{bill.customerName}}</td>
+            <td>{{bill.startDate.seconds | datePipe | date}}</td>
+            <td>{{bill.endDate.seconds | datePipe | date}}</td>
+            <td>{{bill.itemName}}</td>
+            <td>{{bill.comment}}</td>
+            <td>{{bill.price}}</td>
+            <button class="btn btn-outline-secondary" (click)="goToDetails()">Details</button>
+        </tr>
+      
+    </tbody>
+</div>
+<a class="btn btn-outline-success" routerLink="/createBill">Create</a>
+<a routerLink="/home">Vissza</a>
+
