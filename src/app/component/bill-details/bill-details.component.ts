@@ -48,20 +48,20 @@ export class BillDetailsComponent implements OnInit {
     const id = this.router.snapshot.paramMap.get('id')!;
 
     this.billService.getBillDetails(id).subscribe((res) => {
-      this.billRef = res ;
+      this.billRef = res;
       console.log('billRef: ', this.billRef);
 
+      if (this.billRef !== undefined) {
+        console.log('billRef: ', this.billRef);
         this.billDetailsFormGroup = this.formBuilder.group({
-          customerName: [this.billDetailsFormGroup!.controls['customerName'].value],
+          customerName: [`${this.billRef.customerName}`],
           startDate: [this.billRef!.startDate],
           endDate: [this.billRef!.endDate],
           itemName: [this.billRef!.itemName],
           comment: [this.billRef!.comment],
           price: [this.billRef!.price],
-        });
-      
+        })
+      }
     });
-
-    
   }
 }

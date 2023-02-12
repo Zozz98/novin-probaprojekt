@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   //SITE_KEY   = "6Lf0aHQkAAAAAC_1rcmlZIiRXT3MOBk-RR9UJ4Go";
-  //SECRET_KEY = "6Lf0aHQkAAAAACwIyOWYwqDXqj3HWfjePJOYU60b";
+  //SECRET_KEY = ".6Lf0aHQkAAAAACwIyOWYwqDXqj3HWfjePJOYU60b";
   
   
   userFormGroup = this.formBuilder.group({

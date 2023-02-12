@@ -37,7 +37,7 @@ export class CreateBillComponent implements OnInit {
       }
       this.billService.addBill(bill).then((s) => {
         console.log('bill: ', s);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/table']);
       });
     }
   }
