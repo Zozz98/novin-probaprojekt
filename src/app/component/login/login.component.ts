@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   //SITE_KEY   = "6Lf0aHQkAAAAAC_1rcmlZIiRXT3MOBk-RR9UJ4Go";
   //SECRET_KEY = ".6Lf0aHQkAAAAACwIyOWYwqDXqj3HWfjePJOYU60b";
-  
+  //secret_key delete "." on start
   
   userFormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
