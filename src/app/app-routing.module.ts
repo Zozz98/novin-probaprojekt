@@ -7,12 +7,14 @@ import { RegistrationComponent as RegistrationComponent } from './component/regi
 import { AuthGuardService } from './service/auth-guard.service';
 import { CreateBillComponent } from './component/create-bill/create-bill.component';
 import { TableComponent } from './component/table/table.component';
+import { BillDetailsComponent } from './component/bill-details/bill-details.component';
 
 const routes: Routes = [
     {path: 'home',component: HomeComponent, canActivate:[AuthGuardService]},
     {path: 'registration',component: RegistrationComponent},
     {path: 'createBill', component: CreateBillComponent},
     {path: 'table', component: TableComponent},
+    {path: 'billDetails/:id', component: BillDetailsComponent},
     {path: '**', component: LoginComponent}
     
 ];

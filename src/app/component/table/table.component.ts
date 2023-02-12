@@ -28,7 +28,8 @@ export class TableComponent implements OnInit {
     'Ar',
   ];
 
-  goToDetails() {
-    this.router.navigate(['/bill-details']);
+  goToDetails(id:any) {
+    this.billService.getBillDetails(id);
+    //this.router.navigate(['/billDetails']);
   }
 }

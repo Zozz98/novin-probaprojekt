@@ -12,7 +12,16 @@ export const environment = {
     messagingSenderId: '816314709770',
   },
   production: false,
-  
+  recaptcha: {
+    siteKey: "6Lf0aHQkAAAAAC_1rcmlZIiRXT3MOBk-RR9UJ4Go"
+  }
+};
+
+export const environmentRecaptcha = {
+  production: false,
+  recaptcha: {
+    siteKey: "6Lf0aHQkAAAAAC_1rcmlZIiRXT3MOBk-RR9UJ4Go"
+  }
 };
 
 /*

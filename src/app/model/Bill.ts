@@ -1,9 +1,9 @@
 export interface Bill {
     id?: string;
-    customerName?: string; //vasarlo neve
-    startDate?: Date; //kiallitas datuma
-    endDate?: Date; //esedekesseg datuma
-    itemName?: string; //tetel neve
-    comment?: string; //komment
-    price?: number; //ar
+    customerName?: string | undefined; 
+    startDate?: Date | undefined; 
+    endDate?: Date | undefined; 
+    itemName?: string | undefined; 
+    comment?: string | undefined; 
+    price?: number | undefined; 
 }

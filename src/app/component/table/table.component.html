@@ -1,5 +1,5 @@
 <app-home></app-home>
-<div class="table table-striped">
+<div class="table table-striped m-1">
     <thead>
         <tr>
             <th *ngFor="let header of tableHeaders" class="text-center">{{header}}</th>
@@ -13,10 +13,9 @@
             <td>{{bill.endDate.seconds | datePipe | date}}</td>
             <td>{{bill.itemName}}</td>
             <td>{{bill.comment}}</td>
-            <td>{{bill.price}}</td>
-            <button class="btn btn-outline-info m-1" (click)="goToDetails()">Details</button>
+            <td>{{bill.price}}</td><!--(click)="goToDetails(bill.id)"-->
+            <td><a routerLink="/billDetails/{{bill.id}}"  class="btn btn-outline-info m-1">Info</a></td>
         </tr>
-      
     </tbody>
 </div>
 <a class="btn btn-outline-success m-1" routerLink="/createBill">Create</a>

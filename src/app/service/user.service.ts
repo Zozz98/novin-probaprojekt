@@ -7,12 +7,14 @@ import {
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { NgxCaptchaModule } from 'ngx-captcha/lib';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   userData: any;
+  loginAttempts: number = 0;
 
   constructor(
     public afs: AngularFirestore,
@@ -26,7 +28,6 @@ export class UserService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         });
@@ -47,7 +48,6 @@ export class UserService {
         this.afAuth.authState.subscribe(async (user) => {
           if (user) {
             this.userData = (await this.getUserData(user.uid))[0];
-            console.log(this.userData);
           } else {
             localStorage.setItem('user', 'null');
             JSON.parse(localStorage.getItem('user')!);
@@ -55,6 +55,7 @@ export class UserService {
         });
       })
       .catch((error) => {
+        this.loginAttempts++;
         window.alert(error.message);
       });
   }
@@ -69,12 +70,9 @@ export class UserService {
   }
 
   SignUp(email: string, password: string, name: string) {
-   
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
-
         this.SetUserData({
           uid: result.user?.uid,
           email: result.user?.email,
@@ -97,7 +95,7 @@ export class UserService {
       name: user.name,
       password: user.password,
     };
-    
+
     return userRef.set(userData, {
       merge: true,
     });
