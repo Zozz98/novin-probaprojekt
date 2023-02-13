@@ -47,9 +47,9 @@ export class BillDetailsComponent implements OnInit {
     console.log(this.router.snapshot.params['id']);
     const id = this.router.snapshot.paramMap.get('id')!;
 
-    this.billService.getBillDetails(id).subscribe((res) => {
+    this.billService.getBillDetails(this.router.snapshot.params['id']).subscribe((res) => {
       this.billRef = res;
-      console.log('billRef: ', this.billRef);
+      console.log('RES: ', res);
 
       if (this.billRef !== undefined) {
         console.log('billRef: ', this.billRef);

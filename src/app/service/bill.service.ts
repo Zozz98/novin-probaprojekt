@@ -3,6 +3,7 @@ import { Bill } from '../model/Bill';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
 import { Observable, throwError } from 'rxjs';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 export class BillService {
   url = "http://localhost:4200/billDetails";
 
-  constructor(private angularFirestore:AngularFirestore, private http: HttpClient) { }
+  constructor(private angularFirestore:AngularFirestore, private http: HttpClient, private router: ActivatedRoute) { }
 
   
   async addBill(bill: Bill) {
@@ -26,7 +27,7 @@ export class BillService {
     //console.log('bill.service url: ',`${this.url}/${id}`);
     //return this.http.get(`${this.url}/${id}`); //404error
     //return this.angularFireStore.collection('bills').valueChanges();
-    console.log('bills id: ', this.angularFirestore.collection('bills').doc(id).valueChanges());
+    console.log('bills id: ', this.angularFirestore.collection('bills').doc(this.router.snapshot.params['id']).valueChanges());
     return this.angularFirestore.collection('bills').doc(id).valueChanges();
 
   }

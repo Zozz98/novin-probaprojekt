@@ -56,7 +56,12 @@ export class UserService {
       })
       .catch((error) => {
         this.loginAttempts++;
-        window.alert(error.message);
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        window.alert('Wrong email or password');
+        console.log(errorCode);
+        console.log(errorMessage);
+        throw errorCode;
       });
   }
 
